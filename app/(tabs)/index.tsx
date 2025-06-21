@@ -1,13 +1,19 @@
-import { Text, View, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { View, StyleSheet } from "react-native";
+import ImageViewer from "@/components/ImageViewer";
+import Button from "@/components/Button";
+
+const PlaceHolderImage = require("@/assets/images/background-image.png")
 
 export default function Index() {
   return (
-    <View
-      style={styles.container}
-    >
-      <Text style={styles.text}>Home Screen</Text>
-      <Link href="/about" style={styles.button}>Go to About Screen</Link>
+    <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        <ImageViewer imgSource={PlaceHolderImage} />
+      </View>
+      <View style={styles.footerContainer}>
+          <Button theme="primary" label="Chose a photo" />
+          <Button label="Use this photo" />
+      </View>
     </View>
   );
 }
@@ -29,4 +35,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginTop: 20,
   },
+  imageContainer: {
+    flex: 1,
+  },
+  footerContainer: {
+    flex: 1/3,
+    alignItems: "center"
+  }
 });
